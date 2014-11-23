@@ -90,3 +90,17 @@ body {
     border-bottom: 0;
   }
 }
+
+/* custom classes */
+
+.items-list {
+    font-size: 2em;
+    line-height: 2em;
+    & input[type="checkbox"] {
+        margin: 0;
+    }
+}
+
+span.done-true {
+    color: #c4c4c4;
+}

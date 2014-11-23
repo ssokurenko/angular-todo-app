@@ -20,22 +20,29 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container" ng-controller="TodoCtrl">
       <div class="header">
         <ul class="nav nav-pills pull-right">
         </ul>
-        <h3 class="text-muted">ToDo List</h3>
+        <h3 class="text-muted">ToDo List ({{ completeTodoItems }} / {{ totalTodoItems }})</h3>
       </div>
-      <p>
-          Angular Data Binding: <input type="text" ng-model="typeTest" placeholder="type something"></input>
-      </p>
-        <blockquote>
-            {{ typeTest }}
-        </blockquote>
-    
-
+      <div class="content">
+        <div>
+            <ul class="list-unstyled items-list">
+                <li ng-repeat="todoItem in todoItems">
+                    <input type="checkbox" ng-model="todoItem.done" ng-click="updateItmesCounter()"/>
+                    <span class="done-{{ todoItem.done }}">{{ todoItem.title }}</span>
+                </li>
+            </ul>
+        </div>
+        <form class="form-horizontal">
+            <input type="text"  ng-model="newTodoItem" ng-model-instant>
+            <button class="btn" ng-click="addNewTodoItem()"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add new item</button>
+        </form>
+        <button class="btn" ng-click="clearCompleteItems()"><i class="glyphicon glyphicon-trash"></i>Clear complete items</button>
+      </div>
       <div class="footer">
-        <p>&copy; Copyright Stuff</p>
+        <p>&copy;&nbsp;2014&nbsp;<a href="https://github.com/ssokurenko" target="_blank">Sergey Sokurenko</a>. <a href="https://github.com/ssokurenko/great-web-colors" target="_blank">Github Project</a>. Powered by <a href="https://angularjs.org" target="_blank">AngularJS</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>.</p>
       </div>
     </div>
 
@@ -87,6 +94,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/todo.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->
