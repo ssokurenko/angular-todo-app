@@ -93,14 +93,39 @@ body {
 
 /* custom classes */
 
+.header {
+    border: none;
+}
+
 .items-list {
     font-size: 2em;
-    line-height: 2em;
+    line-height: 1.8em;
     & input[type="checkbox"] {
         margin: 0;
     }
 }
 
+.app-title {
+    font-size: 1.4em;
+}
+
+.todo-item, .app-title {
+    font-family: 'Merienda One', Helvetica, Arial, sans-serif;
+}
+
 span.done-true {
     color: #c4c4c4;
+}
+
+.clear-button {
+    float: right;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border: none;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.85);
 }

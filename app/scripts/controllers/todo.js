@@ -2,29 +2,24 @@
 
 /**
  * @ngdoc function
- * @name todoAppApp.controller:AboutCtrl
+ * @name todoAppApp.controller:todoCtrl
  * @description
- * # AboutCtrl
+ * # todoCtrl
  * Controller of the todoAppApp
  */
 angular.module('todoAppApp')
   .controller('TodoCtrl', function ($scope) {
     
-    $scope.todoItems = [
-        {
-            title: "Learn Angular",
-            done:false
-        },
-        {
-            title: "Smile",
-            done:false
-        }
-    ];
-
+    $scope.todoItems = [];
     
     $scope.addNewTodoItem = function(){
+        // Checking if the input field is not empty;
+        if (typeof ($scope.newTodoItem) == 'undefined' || $scope.newTodoItem == "") {
+            return;
+        };
+        
         // Getting the value from the new item input field and add it to the list of list
-        $scope.todoItems.push({title: $scope.newTodoItem, done: false});
+        $scope.todoItems.unshift({title: $scope.newTodoItem, done: false});
         
         // Cleaning up the input field value
         $scope.newTodoItem = "";
